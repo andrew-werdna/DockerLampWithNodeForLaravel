@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+
+  db:
+    image: mariadb:latest
+    container_name: laravel_db
+    build: ./builds/mariadb/
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 4iouh8vLKKJED3LKj423
+      MYSQL_USER: main_user
+      MYSQL_PASSWORD: l3ejn2OUHV8312flv
+
+  php:
+    image: php:7.1.2-apache
+    container_name: laravel_app
+    volumes:
+      - ../application:/var/www
+    build: ./builds/php/
+    tty: true
+    depends_on:
+      - db
