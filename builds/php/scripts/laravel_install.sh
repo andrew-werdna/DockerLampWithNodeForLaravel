@@ -29,5 +29,8 @@ wait
 # npm install
 # wait
 
-echo -e "\n\nInstallation completed\n\n"
+echo -e "\n\nAdding .htaccess so we don't have to go to <local-app>/public\n\n"
 
+cp /tmp/.htaccess $workingDIR
+
+echo -e "\n\nInstallation completed\n\n"

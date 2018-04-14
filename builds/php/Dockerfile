@@ -8,6 +8,7 @@ ADD ./scripts/install_composer.sh /tmp
 ADD ./scripts/install_nvm.sh /tmp
 ADD ./scripts/install_node_lts.sh /tmp
 ADD ./scripts/laravel_install.sh /tmp
+ADD ./htaccess /tmp
 
 # install dependencies for PHP extensions and nice-to-have's
 RUN apt-get update -y
@@ -79,5 +80,4 @@ RUN /etc/init.d/apache2 restart
 
 WORKDIR /var/www/html
 
-#ENTRYPOINT ["/etc/init.d/apache2", "start"]
-CMD /bin/bash
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
