@@ -14,10 +14,13 @@ services:
       MYSQL_PASSWORD: l3ejn2OUHV8312flv
 
   php:
-    image: php:7.1.2-apache
+    image: php:apache
     container_name: laravel_app
+    ports:
+      - 80:80
+      - 443:443
     volumes:
-      - ../application:/var/www
+      - ../application:/var/www/html
     build: ./builds/php/
     tty: true
     depends_on:
