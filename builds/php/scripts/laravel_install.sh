@@ -24,11 +24,6 @@ composer.phar require --prefer-stable \
     doctrine/dbal
 wait
 
-# echo -e "\n\nDoing NPM install\n\n"
-# . $HOME/.nvm/nvm.sh && npm install
-# npm install
-# wait
-
 echo -e "\n\nAdding .htaccess so we don't have to go to <local-app>/public\n\n"
 
 cp /tmp/.htaccess $workingDIR

@@ -6,7 +6,7 @@ MAINTAINER andrew.brown5717@gmail.com
 # Add ./scripts/symfony_install.sh /tmp
 ADD ./scripts/install_composer.sh /tmp
 ADD ./scripts/install_nvm.sh /tmp
-ADD ./scripts/install_node_lts.sh /tmp
+ADD ./scripts/install_node.sh /tmp
 ADD ./scripts/laravel_install.sh /tmp
 ADD ./.htaccess /tmp
 
@@ -38,7 +38,7 @@ RUN apt-get install -y \
 # Just in case we are doing this from a Window's Host
 RUN dos2unix /tmp/install_composer.sh
 RUN dos2unix /tmp/install_nvm.sh
-RUN dos2unix /tmp/install_node_lts.sh
+RUN dos2unix /tmp/install_node.sh
 RUN dos2unix /tmp/laravel_install.sh
 
 # add PHP 7 sources so if needed we can apt-get install {{PHP 7 Package}}
@@ -70,7 +70,7 @@ RUN touch ~/.bashrc && chmod 766 ~/.bashrc
 RUN bash /tmp/install_nvm.sh
 
 # install lts node using NVM
-RUN bash /tmp/install_node_lts.sh
+RUN bash /tmp/install_node.sh
 
 ADD ./apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 ADD ./php.ini /usr/local/etc/php
